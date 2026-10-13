@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Review every tracked source file, or every file in a clean publication export."""
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -14,6 +15,15 @@ TOP_FILES = {'.env.example', '.gitignore', '.vercelignore', 'LICENSE', 'README.m
 DIRECTORY_SUFFIXES = {'src': {'.ts', '.tsx', '.css'}, 'tests': {'.ts'},
                       'docs': {'.md', '.json'}, 'scripts': {'.py'},
                       'public': {'.svg', '.txt'}}
+# Only visually reviewed synthetic documentation screenshots are permitted.
+SCREENSHOTS = {
+    'docs/screenshots/history-filters.png': '05eacbcfeb788c6b0ddb65ea521bc2cc2284fe699063062e53ada0b188afdb60',
+    'docs/screenshots/history-overview.png': '00cc083a90c3299bfb7ce1650478feba5076635faf059f22a9f96817961e253b',
+    'docs/screenshots/history-patterns.png': '24eeb9ea83e678bdb82b5674ff98d5fdc26f4e17beeb9441986b0f314faedb00',
+    'docs/screenshots/mobile-workspace.png': '7d671c4926a4ad5ceca4eb565b3de93804698e5ed4da5fa14761da2ca3157fb4',
+    'docs/screenshots/spotify-curation.png': '0f93fc93c8c47298ca37db21db7c42d775b383302005f75b4e2d09b4c547b5b6',
+    'docs/screenshots/spotify-workspace.png': '3d8ecc4833158c68449a9bb85a7c3a071928c47a2d677cbf0517d9eb5e4b8959',
+}
 PRIVATE_PATHS = re.compile(r'(?:^|/)(?:\.git|\.vercel|\.playwright-cli|node_modules|dist|'
                           r'output|data|__pycache__)(?:/|$)|(?:^|/)Streaming_History|'
                           r'\.(?:zip|tar|gz|png|jpe?g|webp|har|db|sqlite|pem|key|p12|csv)$', re.I)
@@ -41,9 +51,9 @@ def review(root, names):
         if path.is_absolute() or '..' in path.parts:
             failures.append((name, 'unsafe publication path'))
             continue
-        allowed = name in TOP_FILES or (len(path.parts) > 1 and
+        allowed = name in TOP_FILES or name in SCREENSHOTS or (len(path.parts) > 1 and
             path.parts[0] in DIRECTORY_SUFFIXES and path.suffix in DIRECTORY_SUFFIXES[path.parts[0]])
-        if not allowed or PRIVATE_PATHS.search(name):
+        if not allowed or (PRIVATE_PATHS.search(name) and name not in SCREENSHOTS):
             failures.append((name, 'file is outside the source allowlist'))
         file = root / name
         if file.is_symlink() or not file.is_file():
@@ -51,6 +61,10 @@ def review(root, names):
             continue
         raw = file.read_bytes()
         size += len(raw)
+        if name in SCREENSHOTS:
+            if not raw.startswith(b'\x89PNG\r\n\x1a\n') or hashlib.sha256(raw).hexdigest() != SCREENSHOTS[name]:
+                failures.append((name, 'screenshot differs from the reviewed synthetic image'))
+            continue
         try:
             content = raw.decode('utf-8')
         except UnicodeDecodeError:

@@ -4,6 +4,45 @@ A browser-only Spotify dashboard, library-curation tool and optional listening-h
 
 [Live website](https://spotify-history-visualizer-gamma.vercel.app/) · [Architecture](docs/architecture.md) · [Validation](docs/validation.md) · [MIT license](LICENSE)
 
+## Screenshots
+
+These examples use the built-in synthetic history and mocked Spotify responses for the fictional **Example listener** account. They contain no personal listening history or account data. [Screenshot provenance](docs/screenshots/README.md) explains how they were captured.
+
+### Spotify workspace
+
+Explore current library summaries, saved dates and Spotify insights without importing a history file.
+
+![Spotify workspace with fictional library statistics, artist summaries and the data-source toggle](docs/screenshots/spotify-workspace.png)
+
+### Filter and curate your library
+
+Filter current metadata and the returned recent-play sample, select songs and review Unlike, Add to playlist or Move to playlist. The example shows a maximum of one play in the returned sample; it does not imply lifetime play counts. No actions were executed for these screenshots.
+
+![Fictional Liked Songs filtered by recent-sample frequency, with selected rows and bulk-action controls](docs/screenshots/spotify-curation.png)
+
+### Listening history
+
+Explore listening time, eligible skip rates, monthly trends and artist summaries from an optional history export.
+
+![Synthetic listening-history overview with statistics, monthly timeline and artist bars](docs/screenshots/history-overview.png)
+
+<details>
+<summary>More examples: skip filters, listening patterns and mobile</summary>
+
+**History filters:** shortlist songs by attempts, meaningful listens and skip rate.
+
+![Synthetic history filtered to frequently skipped songs](docs/screenshots/history-filters.png)
+
+**Listening patterns:** see how artist rankings change over time.
+
+![Artist-ranking evolution chart generated from synthetic history](docs/screenshots/history-patterns.png)
+
+**Mobile workspace:** the same source toggle and Spotify summaries in a narrow layout.
+
+<img src="docs/screenshots/mobile-workspace.png" alt="Mobile Spotify workspace for a fictional account, with source toggle and summary cards" width="390">
+
+</details>
+
 ## Features
 
 - **Spotify workspace, no import required:** current Liked Songs, saved-date and artist-credit summaries, owned/collaborative playlists, top tracks/artists across three Spotify time windows, a recent-play sample, current playback and other saved content.

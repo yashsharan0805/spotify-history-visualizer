@@ -15,6 +15,10 @@ The original private history was inspected before release. It contained personal
 - A fresh source copy installs from the lockfile, passes all 23 unit tests and builds successfully. The existing 78-scenario browser audit remains applicable because publication changed source packaging/documentation, not application behavior.
 - The public root commit uses the maintainer's GitHub no-reply identity. Personal account totals, song/playlist names, export metrics, machine paths and deployment identifiers are absent from public validation notes.
 
+## Documentation screenshot update
+
+Six visually reviewed examples were added under `docs/screenshots/`, using generated history or intercepted API responses for a fictional account. They contain no personal account/history data and no PNG text or EXIF metadata. Their exact paths and SHA-256 hashes are pinned in the source checker; other binaries and images remain excluded. See [screenshot provenance](screenshots/README.md). This documentation update does not change application behavior.
+
 ## Repeatable source checks
 
 ```sh
