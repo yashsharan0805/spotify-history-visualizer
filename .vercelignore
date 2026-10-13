@@ -1,0 +1,9 @@
+node_modules
+output
+tests
+data
+.env*
+Streaming_History*.json
+*.zip
+.playwright-cli
+docs

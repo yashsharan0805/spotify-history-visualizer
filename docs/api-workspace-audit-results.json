@@ -1,0 +1,363 @@
+{
+  "date": "2026-10-13",
+  "environment": "Isolated headless Chrome through Playwright CLI, intercepted synthetic Spotify responses and synthetic history files",
+  "total": 78,
+  "passed": 78,
+  "failed": 0,
+  "stages": [
+    {
+      "stage": "a-components",
+      "cases": [
+        {
+          "name": "Landing: import/sample buttons and privacy explanation",
+          "ok": true
+        },
+        {
+          "name": "About/credits modal: content, keyboard trap and focus restoration",
+          "ok": true
+        },
+        {
+          "name": "Theme switch persists across reload",
+          "ok": true
+        },
+        {
+          "name": "Synthetic sample import and four statistics",
+          "ok": true
+        },
+        {
+          "name": "Trend chart renders and month click sets date lens",
+          "ok": true
+        },
+        {
+          "name": "Artist DataBars filter the explorer",
+          "ok": true
+        },
+        {
+          "name": "Skip scatter point opens track detail and recorded journey",
+          "ok": true
+        },
+        {
+          "name": "Calendar year switch and date drilldown",
+          "ok": true
+        },
+        {
+          "name": "Favourite tile opens detail; sample Spotify link omitted",
+          "ok": true
+        },
+        {
+          "name": "Explore high skips preset and sample mutation guards",
+          "ok": true
+        },
+        {
+          "name": "Patterns: ranking/flow chart toggles and artist legend drilldown",
+          "ok": true
+        },
+        {
+          "name": "Hour heatmap covers 168 labelled cells",
+          "ok": true
+        },
+        {
+          "name": "SkipTiming, playback outcomes, habit summaries and countries render",
+          "ok": true
+        },
+        {
+          "name": "Platform DataBars set the device lens",
+          "ok": true
+        },
+        {
+          "name": "Unconnected library shows connection CTA and empty-state",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "b-import-filters",
+      "cases": [
+        {
+          "name": "JSON multi-file import, deduplication, invalid-row counts and music statistics",
+          "ok": true
+        },
+        {
+          "name": "Detail modal reflects exact attempt/listen/completion/skip counts and real URI link",
+          "ok": true
+        },
+        {
+          "name": "Sort: attempts, listens, completions, skips, time, least listens, skip rate, last date, name",
+          "ok": true
+        },
+        {
+          "name": "Pagination controls, all matching selection, page toggle and selection clearing",
+          "ok": true
+        },
+        {
+          "name": "Search includes song/artist/album, clears correctly and changes visible selection",
+          "ok": true
+        },
+        {
+          "name": "Skip/confidence and maximum-listen filters and shortlist presets",
+          "ok": true
+        },
+        {
+          "name": "Last-listened filter and pre-2022 skip exclusion",
+          "ok": true
+        },
+        {
+          "name": "Date lens and half-hour timezone boundary",
+          "ok": true
+        },
+        {
+          "name": "Device, shuffle and audio/video filters",
+          "ok": true
+        },
+        {
+          "name": "Content types: podcasts, audiobooks and all media",
+          "ok": true
+        },
+        {
+          "name": "CSV download includes every matching song and escapes formulas/quotes",
+          "ok": true
+        },
+        {
+          "name": "Remembered workspace persists; stored data strips private fields",
+          "ok": true
+        },
+        {
+          "name": "Leap-year calendar includes 366 days",
+          "ok": true
+        },
+        {
+          "name": "Delete local history clears persistence and returns to landing",
+          "ok": true
+        },
+        {
+          "name": "Malformed, wrong export, non-array JSON and empty ZIP show usable errors",
+          "ok": true
+        },
+        {
+          "name": "ZIP import nested JSON files matches accounting and no history uploads",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "d-oauth-errors",
+      "cases": [
+        {
+          "name": "Invalid OAuth state rejects before token exchange and cleans callback URL",
+          "ok": true
+        },
+        {
+          "name": "Denied consent restores temporary workspace and cleans URL",
+          "ok": true
+        },
+        {
+          "name": "Public Connect uses PKCE/scopes and valid callback restores workspace and library",
+          "ok": true
+        },
+        {
+          "name": "Expired access token refreshes once and keeps connection",
+          "ok": true
+        },
+        {
+          "name": "Refresh responses without scope preserve the granted API permissions",
+          "ok": true
+        },
+        {
+          "name": "401 retries once after refreshing, then succeeds",
+          "ok": true
+        },
+        {
+          "name": "429 respects Retry-After and retries boundedly",
+          "ok": true
+        },
+        {
+          "name": "Long 429 delay stops with a usable error instead of waiting indefinitely",
+          "ok": true
+        },
+        {
+          "name": "403 guidance, network failure and partial pagination do not expose partial reads",
+          "ok": true
+        },
+        {
+          "name": "Revoked refresh token clears connected UI and makes reconnect available",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "e-mobile",
+      "cases": [
+        {
+          "name": "Landing responsive at 320, 390, 768 and 1440 pixels",
+          "ok": true
+        },
+        {
+          "name": "Mobile/tablet workspace options expose credits and persistent theme control",
+          "ok": true
+        },
+        {
+          "name": "Overview charts, calendar and filters fit mobile/tablet/desktop",
+          "ok": true
+        },
+        {
+          "name": "Mobile table scrolls internally, selection actions and detail dialog stay reachable",
+          "ok": true
+        },
+        {
+          "name": "Patterns fit 320/390/768; labelled heatmap and skip chart present",
+          "ok": true
+        },
+        {
+          "name": "Empty date lens renders zero stats and recoverable table empty-state",
+          "ok": true
+        },
+        {
+          "name": "Desktop keyboard skip link focuses content, credits focus traps and restores",
+          "ok": true
+        },
+        {
+          "name": "Drag/drop import processes a synthetic file locally",
+          "ok": true
+        },
+        {
+          "name": "Import picker accepts multiple files and ZIP history",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "live-functional",
+      "cases": [
+        {
+          "name": "Signed-in dashboard works without ZIP, sample data or IndexedDB history",
+          "ok": true
+        },
+        {
+          "name": "Current Liked Songs metadata and 30-row pagination",
+          "ok": true
+        },
+        {
+          "name": "Search, artist, saved dates, release years, explicit and length filters",
+          "ok": true
+        },
+        {
+          "name": "Recent/top filters use returned evidence and current selected ranking window",
+          "ok": true
+        },
+        {
+          "name": "Last returned play date and sample-frequency filters never infer all-time counts",
+          "ok": true
+        },
+        {
+          "name": "Playlist membership/absence/duplicate filters use current playlist contents",
+          "ok": true
+        },
+        {
+          "name": "Reviewed Unlike without history, receipt and Restore verify exact library membership",
+          "ok": true
+        },
+        {
+          "name": "Top songs/artists and range switching use affinity rankings rather than play counts",
+          "ok": true
+        },
+        {
+          "name": "Slow old ranking response cannot overwrite a newer range",
+          "ok": true
+        },
+        {
+          "name": "Unliked top track supports Add, but Unlike and Move stay disabled",
+          "ok": true
+        },
+        {
+          "name": "Move reads back playlist membership before removing the selected like",
+          "ok": true
+        },
+        {
+          "name": "Ambiguous or unverified playlist writes never remove likes",
+          "ok": true
+        },
+        {
+          "name": "Owned/collaborative playlist explorer, duplicate counts and overlap",
+          "ok": true
+        },
+        {
+          "name": "Recent activity exposes only returned events and sample counts",
+          "ok": true
+        },
+        {
+          "name": "Quota failure preserves the last successful sample and does not auto-retry",
+          "ok": true
+        },
+        {
+          "name": "Playback progress/device/shuffle/repeat and no-active-playback state",
+          "ok": true
+        },
+        {
+          "name": "Opt-in playback refresh makes one new request after 30 seconds and can be stopped",
+          "ok": true
+        },
+        {
+          "name": "Saved albums pagination, creator search and saved-date filter",
+          "ok": true
+        },
+        {
+          "name": "Followed artists, genre filtering, podcasts, episodes and audiobooks use their own API shapes",
+          "ok": true
+        },
+        {
+          "name": "Global refresh clears selection and refreshes current API snapshots",
+          "ok": true
+        },
+        {
+          "name": "320/390/768/1440 widths fit dashboard, filters, saved content and playback",
+          "ok": true
+        },
+        {
+          "name": "Old permissions retain current library but do not issue unauthorized insight reads",
+          "ok": true
+        },
+        {
+          "name": "Revoked session during an insight refresh clears the account view and enables reconnect",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "playback-episode",
+      "cases": [
+        {
+          "name": "Episode playback requests supported types, renders progress/device/link and handles HTTP 204",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "source-toggle",
+      "cases": [
+        {
+          "name": "Source toggle is accessible, defaults to API after sign-in and works without an export",
+          "ok": true
+        },
+        {
+          "name": "Switching preserves the imported dataset but keeps API metadata and selections separate",
+          "ok": true
+        },
+        {
+          "name": "Source preference persists across reload while remembered export stays available",
+          "ok": true
+        },
+        {
+          "name": "Both source choices stay visible and fit mobile, tablet and desktop layouts",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    }
+  ]
+}

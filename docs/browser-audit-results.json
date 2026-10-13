@@ -1,0 +1,295 @@
+{
+  "date": "2026-10-13",
+  "environment": "Isolated headless Chrome through Playwright CLI; synthetic history and intercepted Spotify API responses",
+  "total": 64,
+  "passed": 64,
+  "failed": 0,
+  "stages": [
+    {
+      "stage": "a-components",
+      "cases": [
+        {
+          "name": "Landing: import/sample buttons and privacy explanation",
+          "ok": true
+        },
+        {
+          "name": "About/credits modal: content, keyboard trap and focus restoration",
+          "ok": true
+        },
+        {
+          "name": "Theme switch persists across reload",
+          "ok": true
+        },
+        {
+          "name": "Synthetic sample import and four statistics",
+          "ok": true
+        },
+        {
+          "name": "Trend chart renders and month click sets date lens",
+          "ok": true
+        },
+        {
+          "name": "Artist DataBars filter the explorer",
+          "ok": true
+        },
+        {
+          "name": "Skip scatter point opens track detail and recorded journey",
+          "ok": true
+        },
+        {
+          "name": "Calendar year switch and date drilldown",
+          "ok": true
+        },
+        {
+          "name": "Favourite tile opens detail; sample Spotify link omitted",
+          "ok": true
+        },
+        {
+          "name": "Explore high skips preset and sample mutation guards",
+          "ok": true
+        },
+        {
+          "name": "Patterns: ranking/flow chart toggles and artist legend drilldown",
+          "ok": true
+        },
+        {
+          "name": "Hour heatmap covers 168 labelled cells",
+          "ok": true
+        },
+        {
+          "name": "SkipTiming, playback outcomes, habit summaries and countries render",
+          "ok": true
+        },
+        {
+          "name": "Platform DataBars set the device lens",
+          "ok": true
+        },
+        {
+          "name": "Unconnected library shows connection CTA and empty-state",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "b-import-filters",
+      "cases": [
+        {
+          "name": "JSON multi-file import, deduplication, invalid-row counts and music statistics",
+          "ok": true
+        },
+        {
+          "name": "Detail modal reflects exact attempt/listen/completion/skip counts and real URI link",
+          "ok": true
+        },
+        {
+          "name": "Sort: attempts, listens, completions, skips, time, least listens, skip rate, last date, name",
+          "ok": true
+        },
+        {
+          "name": "Pagination controls, all matching selection, page toggle and selection clearing",
+          "ok": true
+        },
+        {
+          "name": "Search includes song/artist/album, clears correctly and changes visible selection",
+          "ok": true
+        },
+        {
+          "name": "Skip/confidence and maximum-listen filters and shortlist presets",
+          "ok": true
+        },
+        {
+          "name": "Last-listened filter and pre-2022 skip exclusion",
+          "ok": true
+        },
+        {
+          "name": "Date lens and half-hour timezone boundary",
+          "ok": true
+        },
+        {
+          "name": "Device, shuffle and audio/video filters",
+          "ok": true
+        },
+        {
+          "name": "Content types: podcasts, audiobooks and all media",
+          "ok": true
+        },
+        {
+          "name": "CSV download includes every matching song and escapes formulas/quotes",
+          "ok": true
+        },
+        {
+          "name": "Remembered workspace persists; stored data strips private fields",
+          "ok": true
+        },
+        {
+          "name": "Leap-year calendar includes 366 days",
+          "ok": true
+        },
+        {
+          "name": "Delete local history clears persistence and returns to landing",
+          "ok": true
+        },
+        {
+          "name": "Malformed, wrong export, non-array JSON and empty ZIP show usable errors",
+          "ok": true
+        },
+        {
+          "name": "ZIP import nested JSON files matches accounting and no history uploads",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "c-library-actions",
+      "cases": [
+        {
+          "name": "Connected account, paginated liked library, unmatched songs and history-only filter",
+          "ok": true
+        },
+        {
+          "name": "Liked-only joins history by URI in the song explorer",
+          "ok": true
+        },
+        {
+          "name": "Unlike review requires explicit confirmation, downloads selection and cancels without writes",
+          "ok": true
+        },
+        {
+          "name": "Unlike and receipt download, followed by verified restoration",
+          "ok": true
+        },
+        {
+          "name": "Add to playlist filters out non-owned playlists and preserves likes",
+          "ok": true
+        },
+        {
+          "name": "Existing playlist membership is not duplicated",
+          "ok": true
+        },
+        {
+          "name": "Move adds and reads back membership before unlike, then restores likes",
+          "ok": true
+        },
+        {
+          "name": "New private playlist creation and name validation",
+          "ok": true
+        },
+        {
+          "name": "Failed playlist write is not retried and never unlikes",
+          "ok": true
+        },
+        {
+          "name": "Unverified playlist membership halts Move before unlike",
+          "ok": true
+        },
+        {
+          "name": "Changed account fails before mutations",
+          "ok": true
+        },
+        {
+          "name": "Busy action prevents duplicate submission, cancellation and workspace deletion",
+          "ok": true
+        },
+        {
+          "name": "107-song bulk Move and Restore obey batch limits and verify additions",
+          "ok": true
+        },
+        {
+          "name": "Sample workspace permits verified real Liked Songs but blocks synthetic track actions",
+          "ok": true
+        },
+        {
+          "name": "Disconnect clears Spotify session and current library",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "d-oauth-errors",
+      "cases": [
+        {
+          "name": "Invalid OAuth state rejects before token exchange and cleans callback URL",
+          "ok": true
+        },
+        {
+          "name": "Denied consent restores temporary workspace and cleans URL",
+          "ok": true
+        },
+        {
+          "name": "Public Connect uses PKCE/scopes and valid callback restores workspace and library",
+          "ok": true
+        },
+        {
+          "name": "Expired access token refreshes once and keeps connection",
+          "ok": true
+        },
+        {
+          "name": "401 retries once after refreshing, then succeeds",
+          "ok": true
+        },
+        {
+          "name": "429 respects Retry-After and retries boundedly",
+          "ok": true
+        },
+        {
+          "name": "Long 429 delay stops with a usable error instead of waiting indefinitely",
+          "ok": true
+        },
+        {
+          "name": "403 guidance, network failure and partial pagination do not expose partial reads",
+          "ok": true
+        },
+        {
+          "name": "Revoked refresh token clears connected UI and makes reconnect available",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "stage": "e-mobile",
+      "cases": [
+        {
+          "name": "Landing responsive at 320, 390, 768 and 1440 pixels",
+          "ok": true
+        },
+        {
+          "name": "Mobile/tablet workspace options expose credits and persistent theme control",
+          "ok": true
+        },
+        {
+          "name": "Overview charts, calendar and filters fit mobile/tablet/desktop",
+          "ok": true
+        },
+        {
+          "name": "Mobile table scrolls internally, selection actions and detail dialog stay reachable",
+          "ok": true
+        },
+        {
+          "name": "Patterns fit 320/390/768; labelled heatmap and skip chart present",
+          "ok": true
+        },
+        {
+          "name": "Empty date lens renders zero stats and recoverable table empty-state",
+          "ok": true
+        },
+        {
+          "name": "Desktop keyboard skip link focuses content, credits focus traps and restores",
+          "ok": true
+        },
+        {
+          "name": "Drag/drop import processes a synthetic file locally",
+          "ok": true
+        },
+        {
+          "name": "Import picker accepts multiple files and ZIP history",
+          "ok": true
+        }
+      ],
+      "pageErrors": []
+    }
+  ]
+}
