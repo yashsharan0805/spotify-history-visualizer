@@ -6,7 +6,7 @@ A browser-only Spotify dashboard, library-curation tool and optional listening-h
 
 ## Screenshots
 
-These examples use the built-in synthetic history and mocked Spotify responses for the fictional **Example listener** account. They contain no personal listening history or account data. [Screenshot provenance](docs/screenshots/README.md) explains how they were captured.
+These examples use the built-in synthetic history and mocked Spotify responses for the fictional **Example listener** account. They contain no personal listening history or account data. Captured before the Web Analytics update; see the current privacy section for traffic collection. [Screenshot provenance](docs/screenshots/README.md) explains how they were captured.
 
 ### Spotify workspace
 
@@ -261,7 +261,7 @@ npm run preview
 
 Preview serves the production build at `http://127.0.0.1:5174/`. Environment values are embedded in that build; rebuild after editing them. If a port is occupied, use the URL Vite prints and register its callback when testing login.
 
-Tests cover metric/timezone/privacy contracts and bulk-action failures. The [API-workspace and source-toggle audit](docs/api-workspace-audit.md) records 78 passing functional scenarios across the API/history views, imports, source switching, filters, library actions, OAuth errors and mobile/keyboard flows. All 23 maintained unit tests and the production build passed; the [earlier audit](docs/browser-audit.md) records the original history-only coverage. [Validation](docs/validation.md) records real account checks separately from synthetic mocks. Keep browser fixtures synthetic; a live mutation needs a specifically authorized selection and read-back verification.
+Tests cover metric/timezone/privacy contracts and bulk-action failures. The [API-workspace and source-toggle audit](docs/api-workspace-audit.md) records 78 passing functional scenarios across the API/history views, imports, source switching, filters, library actions, OAuth errors and mobile/keyboard flows. All 26 maintained unit tests (including web-analytics privacy checks) and the production build passed; the [earlier audit](docs/browser-audit.md) records the original history-only coverage. [Validation](docs/validation.md) records real account checks separately from synthetic mocks. Keep browser fixtures synthetic; a live mutation needs a specifically authorized selection and read-back verification.
 
 The app uses React, TypeScript, Vite, Recharts, Lucide and fflate. See [architecture](docs/architecture.md) for boundaries, storage and failure semantics. Other static hosts must serve `dist`, embed the public app ID at build time and reproduce callback routing/security headers before testing OAuth.
 

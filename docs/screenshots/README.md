@@ -2,6 +2,8 @@
 
 Captured on 13 October 2026 from Rewind's unchanged application UI in an isolated headless Chromium profile using Playwright. The screenshots are page captures without browser chrome. Desktop views use a 1440-pixel viewport; the mobile example uses 390 pixels.
 
+These captures predate the 16 October Web Analytics integration. The current application and README privacy text disclose aggregate website traffic analytics; the older sidebar wording in these screenshots is historical. Listening history remains browser-local.
+
 | File | Example | Data source |
 | --- | --- | --- |
 | `spotify-workspace.png` | API dashboard and source toggle | Mocked responses for fictional Example listener |
