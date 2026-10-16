@@ -1,6 +1,6 @@
 # Rewind
 
-A browser-only Spotify dashboard, library-curation tool and optional listening-history explorer. Sign in to filter current Spotify data without a ZIP. Import Extended Streaming History when you want historical play/skip statistics. No backend database, history uploads, analytics trackers, or client secret.
+A browser-only Spotify dashboard, library-curation tool and optional listening-history explorer. Sign in to filter current Spotify data without a ZIP. Import Extended Streaming History when you want historical play/skip statistics. No backend database, history uploads or client secret. Cookie-free Vercel Web Analytics measures aggregate website traffic.
 
 [Live website](https://spotify-history-visualizer-gamma.vercel.app/) · [Architecture](docs/architecture.md) · [Validation](docs/validation.md) · [MIT license](LICENSE)
 
@@ -142,6 +142,10 @@ Do not add a client secret. This ID is public and is included in the browser bun
 
 When connected through Vercel's Git integration, pushes to the production branch create deployments. Environment changes still require a rebuild. To connect an existing deployed Vercel project to this repository, use that project's **Settings → Git**; retain its production environment variable and callback domain.
 
+### Web Analytics
+
+In your Vercel project, open **Analytics** and enable **Web Analytics**, then redeploy. The production app already includes `@vercel/analytics`; no analytics token or environment variable is needed. Development and local preview do not load tracking. Since Rewind uses one URL for its views, this integration counts website visits rather than individual chart/filter interactions. The existing same-origin CSP permits the Vercel analytics routes. See [Vercel setup](https://vercel.com/docs/analytics/quickstart) and [privacy details](https://vercel.com/docs/analytics/privacy-policy).
+
 ### Optional: Vercel CLI
 
 After creating your Spotify app and choosing the intended Vercel project:
@@ -226,7 +230,7 @@ Unlike/restore requests use batches of 40; playlist additions use batches of 100
 
 A Web Worker parses/aggregates imports and strips IP addresses and arbitrary personal fields before returning normalized events or storing them. History stays in memory or optional browser-local IndexedDB. OAuth navigation can use a temporary local checkpoint that expires after one hour and is cleared on return.
 
-Spotify receives authorization and the selected account-data/library/playlist requests; the host receives static-page requests. Rewind has no history-upload endpoint or analytics tracker. Tokens are session-scoped. Browser storage is specific to the origin/device; changing domains does not transfer a workspace.
+Spotify receives authorization and the selected account-data/library/playlist requests. The host receives static-page requests and production Vercel Web Analytics collects aggregate traffic metrics such as page views, visitors, referrers, devices and countries. Only the root page URL is tracked; query strings, fragments, OAuth callbacks and custom events are excluded. Spotify identities, tokens, listening history, songs, searches, filters, selections and receipts are never passed to web analytics. Tokens remain session-scoped. Browser storage is specific to the origin/device; changing domains does not transfer a workspace.
 
 Commit source, the lockfile, `.env.example`, tests and license notices. Never commit/deploy raw history, real-data screenshots, browser sessions, OAuth tokens, client secrets, `.env.local`, `.vercel/`, `output/`, or `node_modules/`. Git/deployment ignore files exclude these local artifacts. Repository privacy is separate from deployed website accessibility.
 
@@ -274,6 +278,7 @@ Rewind uses these open-source packages directly. Their code is reused as depende
 | [React and React DOM](https://github.com/react/react) — Meta Platforms and contributors | UI components, state/effects and browser rendering | MIT |
 | [Recharts](https://github.com/recharts/recharts) — Recharts contributors | Interactive timelines, scatterplots, artist rank/flow charts and playback charts | MIT |
 | [Lucide React](https://github.com/lucide-icons/lucide) — Lucide contributors; portions originate in Cole Bemis's Feather icons | Interface icons for navigation, filters, import/export and actions | ISC; the bundled notice also preserves the Feather attribution |
+| [Vercel Analytics](https://github.com/vercel/analytics) — Vercel contributors | Cookie-free aggregate production website traffic; sanitized page URLs only | MIT |
 | [fflate](https://github.com/101arrowz/fflate) — Arjun Barrett | Reading and decompressing uploaded history ZIP archives in the import worker | MIT |
 
 Development also relies on these tools:
